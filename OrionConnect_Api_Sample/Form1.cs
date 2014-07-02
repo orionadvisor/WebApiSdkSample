@@ -45,13 +45,11 @@ namespace OrionConnect_Api_Sample
         #region Login
         private void btnCheckToken_Click(object sender, EventArgs e) {
 
-            // Set the orion api connection enviornment.
-            OrionApi.SetConnection( OrionEnvironment.Test  );
 
             lblLoginStatus.Text = "";
             try {
                 // use the "stored" token, in this case it is just the token in the text box.
-                if( OrionApi.SetToken( txtAuthToken.Text ) ) {
+                if( OrionApi.Authenticate( txtAuthToken.Text, OrionEnvironment.Test ) ) {
                     MessageBox.Show( "The token is valid." );
                 } else
                 {
@@ -59,7 +57,7 @@ namespace OrionConnect_Api_Sample
 
                     var login = new frmLogin();
                     if( login.ShowDialog( ) == DialogResult.OK ) {
-                        OrionApi.Authenticate( login.UserName, login.Password );
+                        OrionApi.Authenticate( login.UserName, login.Password, OrionEnvironment.Test );
                         this.setStatus( "Authenticate", "/Security/Token" );
                     } else {
                         return;
@@ -153,6 +151,27 @@ namespace OrionConnect_Api_Sample
             grdClients.DataSource = OrionApi.Portfolio.ClientsSearchValue(txtClientSearch.Text);
             this.setStatus(  string.Format("{0} Clients Loaded.", grdClients.RowCount), "Portfolio/Clients/Value/Search?search=" + txtClientSearch.Text);
         }
+
+        private void cmdEditClient_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            var frm = new frmClient();
+
+            // set the currently selected client (must use verbose objects for editing)
+            frm.ClientVerbose = OrionApi.Portfolio.ClientVerbose((int)grdClients.SelectedRows[0].Cells["id"].Value);
+
+            frm.ShowDialog();
+
+        }
+
+        private void cmdNewClient_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            var frm = new frmClient();
+
+            frm.ShowDialog();
+        }
+
         #endregion
 
         #region Accounts Tab
@@ -219,6 +238,64 @@ namespace OrionConnect_Api_Sample
 
 
         #endregion
+
+        private void btnLoadRegistrations_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            grdRegistrations.DataSource = OrionApi.Portfolio.Registrations( top: 1000 );
+
+        }
+
+        private void btnLoadSimpleRegistration_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            grdRegistrations.DataSource = OrionApi.Portfolio.RegistrationsSimple();
+        }
+
+        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchRegistrations_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            grdRegistrations.DataSource = OrionApi.Portfolio.RegistrationsSearch( txtRegistrationSearch.Text );
+
+        }
+
+        private void btnEditRegistration_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            var frm = new frmRegistration();
+
+            if( grdRegistrations.Rows.Count == 0 ) {
+                MessageBox.Show( "select registration from grid." );
+                return;
+            }
+
+            // set the currently selected client (must use verbose objects for editing)
+            frm.RegistrationVerbose = OrionApi.Portfolio.RegistrationVerbose((int)grdRegistrations.SelectedRows[0].Cells["id"].Value);
+
+            frm.ShowDialog();
+
+        }
+
+        private void btnNewRegistration_Click(object sender, EventArgs e)
+        {
+            if (!this.checkAuth()) return;
+            var frm = new frmRegistration();
+
+            frm.ShowDialog();
+
+        }
+
+
 
 
 

@@ -66,9 +66,15 @@
     <Compile Include="Classes\Portfolio\Account.cs" />
     <Compile Include="Classes\Portfolio\AccountSimple.cs" />
     <Compile Include="Classes\Portfolio\AccountSimpleValue.cs" />
+    <Compile Include="Classes\Portfolio\AccountTypeSimple.cs" />
     <Compile Include="Classes\Portfolio\AccountVerbose.cs" />
     <Compile Include="Classes\Portfolio\Client.cs" />
     <Compile Include="Classes\Portfolio\ClientSimple.cs" />
+    <Compile Include="Classes\Portfolio\ClientVerbose.cs" />
+    <Compile Include="Classes\Portfolio\Registration.cs" />
+    <Compile Include="Classes\Portfolio\RegistrationSimple.cs" />
+    <Compile Include="Classes\Portfolio\RegistrationVerbose.cs" />
+    <Compile Include="Classes\Portfolio\Simple.cs" />
     <Compile Include="Classes\Portfolio\SimpleValue.cs" />
     <Compile Include="Code\ApiBase.cs" />
     <Compile Include="Code\Authorization.cs" />

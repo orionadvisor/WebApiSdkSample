@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace OrionApiSdk.Classes.Portfolio
 {
-    public class ClientSimple : Simple
+    public class Simple
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public bool isActive { get; set; }
-
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }

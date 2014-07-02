@@ -57,6 +57,157 @@ namespace OrionApiSdk.Code
 
             return d;
         }
+
+        /// <summary>
+        /// Returns an initialized new ClientVerbose object
+        /// </summary>
+        /// <returns></returns>
+        public ClientVerbose ClientVerboseNew()
+        {
+            var endpoint = string.Format("Portfolio/Clients/Verbose/New");
+
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<ClientVerbose>(j);
+
+            return d;
+        }
+
+        /// <summary>
+        /// Returns a verbose client object for the specified client id.
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
+        public ClientVerbose ClientVerbose( int clientId )
+        {
+            var endpoint = string.Format("Portfolio/Clients/Verbose/{0}", clientId);
+
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<ClientVerbose>(j);
+
+            return d;
+        }
+
+        /// <summary>
+        /// Adds or Updates the client record, and returns the updated ClientVerbose object.  If the client.Id == 0, the record will be added, if it has a client id, the client record will be updated.
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
+        public ClientVerbose ClientSave(ClientVerbose clientVerbose) {
+            var endpoint = string.Empty;
+            var j = string.Empty;
+
+            if( clientVerbose.id == 0 ) {
+                // new 
+                endpoint = string.Format("Portfolio/Clients/Verbose");
+                j = base.PostJson(endpoint, clientVerbose);
+            } else {
+                // update
+                endpoint = string.Format("Portfolio/Clients/Verbose/{0}", clientVerbose.id);
+                j = base.PutJson(endpoint, clientVerbose);
+            }
+
+
+
+           var d = JsonConvert.DeserializeObject<ClientVerbose>( j );
+
+
+            return d;
+        }
+
+        #endregion
+
+        #region Registrations
+        public List<RegistrationSimple> RegistrationsSimple(int top = 50000, int skip = 0,  bool? isActive = null)
+        {
+            var endpoint = string.Format("Portfolio/Registrations/Simple?isActive={0}&$top={1}&$skip={2}", isActive, top, skip);
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<RegistrationSimple>>(j);
+
+            return d;
+        }
+
+        public RegistrationVerbose RegistrationVerbose( int registrationId )
+        {
+            var endpoint = string.Format("Portfolio/Registrations/Verbose/{0}", registrationId );
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<RegistrationVerbose > (j);
+
+            return d;
+        }
+
+        public RegistrationVerbose RegistrationVerboseNew() {
+            var endpoint = string.Format( "Portfolio/Registrations/Verbose/New" );
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<RegistrationVerbose>(j);
+
+            return d;
+        }
+
+        public RegistrationVerbose RegistrationSave(RegistrationVerbose registrationVerbose )
+        {
+            var endpoint = string.Empty;
+            var j = string.Empty;
+
+            if (registrationVerbose.id == 0)
+            {
+                // new 
+                endpoint = string.Format("Portfolio/Registrations/Verbose");
+                j = base.PostJson(endpoint, registrationVerbose);
+            }
+            else
+            {
+                // update
+                endpoint = string.Format("Portfolio/Registrations/Verbose/{0}", registrationVerbose.id);
+                j = base.PutJson(endpoint, registrationVerbose);
+            }
+
+
+
+            var d = JsonConvert.DeserializeObject<RegistrationVerbose>(j);
+
+
+            return d;
+        }
+
+        public List<RegistrationSimple> RegistrationsSearch(string searchText, int top = 50000, int skip = 0)
+        {
+            var endpoint = string.Format("Portfolio/Registrations/Simple/Search?$top={0}&$skip={1}&search={2}", top, skip, searchText);
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<RegistrationSimple>>(j);
+
+            return d;
+        }
+
+        public List<Registration> Registrations(int top = 50000, int skip = 0, bool? isActive = null)
+        {
+            var endpoint = string.Format("Portfolio/Registrations?isActive={0}&$top={1}&$skip={2}", isActive, top, skip);
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Registration>>(j);
+
+            return d;
+        }
+
+        public List<Registration> RegistrationsForClient(int clientId) {
+            var endpoint = string.Format( "Portfolio/Clients/{0}/Registrations", clientId );
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Registration>>(j);
+
+            return d;
+        }
+
+        #endregion
+
+        #region Represenatives/Advisors
+        public List<Simple> RepresenativesSimple(int top = 50000, int skip = 0)
+        {
+            var endpoint = string.Format("Portfolio/Representatives/Simple?$top={0}&$skip={1}", top, skip);
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Simple>>(j);
+
+            return d;
+        }
+
+
         #endregion
 
         #region Accounts
@@ -126,5 +277,19 @@ namespace OrionApiSdk.Code
         #endregion
 
         #endregion
+
+
+        #region Lookup Tables
+        public List<AccountTypeSimple> AccountTypes()
+        {
+            var endpoint = string.Format("Portfolio/Registrations/Types");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<AccountTypeSimple>>(j);
+
+            return d;
+        }
+
+        #endregion
+
     }
 }

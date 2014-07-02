@@ -1,4 +1,7 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace OrionApiSdk.Code
 {
@@ -12,11 +15,51 @@ namespace OrionApiSdk.Code
         {
             var response = httpClient.GetAsync(endpoint).Result;
 
-            response.EnsureSuccessStatusCode();
-
-            // return the json, and write it to a dictionary for easier parse.
             var j = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // try to parse the validation errors.
+                throw new Exception(j);
+            }
+
+            response.EnsureSuccessStatusCode();  // throws an error if any other error codes were returned.
             return j;
         }
+
+        public string PostJson(string endpoint, object body) {
+            var content = new StringContent( JsonConvert.SerializeObject( body ) );
+
+            var response = httpClient.PostAsync( endpoint, content ).Result;
+            
+            var j = response.Content.ReadAsStringAsync().Result;
+
+            if( !response.IsSuccessStatusCode ) {
+                // try to parse the validation errors.
+                throw new Exception( j );
+            }
+            
+            response.EnsureSuccessStatusCode();  // throws an error if any other error codes were returned.
+            return j;
+        }
+
+        public string PutJson(string endpoint, object body)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(body));
+
+            var response = httpClient.PutAsync(endpoint, content).Result;
+
+            var j = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // try to parse the validation errors.
+                throw new Exception(j);
+            }
+
+            response.EnsureSuccessStatusCode();  // throws an error if any other error codes were returned.
+            return j;
+        }
+
     }
 }

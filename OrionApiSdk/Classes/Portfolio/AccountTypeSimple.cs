@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace OrionApiSdk.Classes.Portfolio
 {
-    public class SimpleValue : Simple
-    {
-        public double value { get; set; }
 
+    public class AccountTypeSimple
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string accountType { get; set; }
     }
+
 }

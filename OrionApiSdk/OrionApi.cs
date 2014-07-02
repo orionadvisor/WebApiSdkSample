@@ -15,7 +15,12 @@ namespace OrionApiSdk
         private static HttpClient _httpClient;
         private static string _apiUrl ;
         private static string _orionConnectUrl;
-
+        private const string TESTAPIURL = "https://testapi.orionadvisor.com/api/v1/";
+        private const string TESTCONNECTURL = "https://testapp.orionadvisor.com/integration.html";
+        private const string PRODAPIURL = "https://api.orionadvisor.com/api/v1/";
+        private const string PRODCONNECTURL = "https://app.orionadvisor.com/integration.html";
+        private const string LOCALAPIURL = "http://api.orionadvisor.local/api/v1/";
+        private const string LOCALCONNECTURL = "http://testapp.orionadvisor.local/integration.html";
 
 
         private static Code.Portfolio _portfolio;
@@ -41,19 +46,7 @@ namespace OrionApiSdk
 
         #endregion
 
-        /// <summary>
-        /// Specifies the orion environment to connect to.
-        /// </summary>
-        /// <param name="environment">Specify the Orion Test or Production Environment.</param>
-        public static void SetConnection( OrionEnvironment environment ) {
-            if( environment == OrionEnvironment.Test ) {
-                _apiUrl = "https://testapi.orionadvisor.com/api/v1/";
-                _orionConnectUrl = "https://testapp.orionadvisor.com/integration.html";
-            } else {
-                _apiUrl = "https://api.orionadvisor.com/api/v1/";
-                _orionConnectUrl = "https://app.orionadvisor.com/integration.html";
-            }
-        }
+
         #region Authentication
         public static string AuthToken { get; set; }
 
@@ -62,10 +55,16 @@ namespace OrionApiSdk
         /// </summary>
         /// <param name="uid">Orion UserId</param>
         /// <param name="pwd">Orion Password</param>
-        public static void Authenticate( string uid, string pwd ) {
+        public static void Authenticate(string uid, string pwd, OrionEnvironment environment = OrionEnvironment.Test)
+        {
 
-            if( String.IsNullOrEmpty( _apiUrl ) ) {
-                throw new Exception("The connection has not been set.  Call SetConnection() to establish the urls for the desired Orion Environment.");
+            if (environment == OrionEnvironment.Test) {
+                _apiUrl = TESTAPIURL;
+                _orionConnectUrl = TESTCONNECTURL;
+            }
+            else {
+                _apiUrl = PRODAPIURL;
+                _orionConnectUrl = PRODCONNECTURL;
             }
 
             var client = new HttpClient
@@ -98,12 +97,21 @@ namespace OrionApiSdk
         /// </summary>
         /// <param name="authToken">Orion WebApi token</param>
         /// <returns></returns>
-        public static bool SetToken(string authToken)
+        public static bool Authenticate(string authToken, OrionEnvironment? environment = null)
         {
-            if (String.IsNullOrEmpty(_apiUrl))
-            {
-                throw new Exception("The connection has not been set.  Call SetConnection() to establish the urls for the desired Orion Environment.");
+            if( environment != null ) {
+                if (environment == OrionEnvironment.Test)
+                {
+                    _apiUrl = TESTAPIURL;
+                    _orionConnectUrl = TESTCONNECTURL;
+                }
+                else
+                {
+                    _apiUrl = PRODAPIURL;
+                    _orionConnectUrl = PRODCONNECTURL;
+                }
             }
+
             // this method will validate the token, if it is valid, it will get set as the defult header.
             var client = new HttpClient
             {

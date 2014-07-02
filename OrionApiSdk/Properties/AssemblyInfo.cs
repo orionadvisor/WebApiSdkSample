@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OrionApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("OrionApiSdk")]
+[assembly: AssemblyDescription("Orion is a Portfolio Management Software suite that provides Technology for Financial Advisors.  This includes performance reporting, billing, trading, account maintenance, tax reporting ect.  This project allows partners and customers to connect to our Portfolio Accounting platform to build integrations with their own software and systems.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OrionApi")]
+[assembly: AssemblyCompany("Orion Advisor Services, LLC")]
+[assembly: AssemblyProduct("OrionApiSdk")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
