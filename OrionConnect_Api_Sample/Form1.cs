@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -48,8 +49,10 @@ namespace OrionConnect_Api_Sample
 
             lblLoginStatus.Text = "";
             try {
+                var env = (OrionEnvironment)Enum.Parse(typeof(OrionEnvironment), ConfigurationManager.AppSettings["OrionEnvironment"]);
+
                 // use the "stored" token, in this case it is just the token in the text box.
-                if( OrionApi.Authenticate( txtAuthToken.Text, OrionEnvironment.Test ) ) {
+                if( OrionApi.Authenticate( txtAuthToken.Text,  env ) ) {
                     MessageBox.Show( "The token is valid." );
                 } else
                 {
@@ -57,7 +60,7 @@ namespace OrionConnect_Api_Sample
 
                     var login = new frmLogin();
                     if( login.ShowDialog( ) == DialogResult.OK ) {
-                        OrionApi.Authenticate( login.UserName, login.Password, OrionEnvironment.Test );
+                        OrionApi.Authenticate( login.UserName, login.Password, env);
                         this.setStatus( "Authenticate", "/Security/Token" );
                     } else {
                         return;
