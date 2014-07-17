@@ -50,6 +50,15 @@
             this.btnLaunchOverview = new System.Windows.Forms.Button();
             this.grdClients = new System.Windows.Forms.DataGridView();
             this.btnLoadClients = new System.Windows.Forms.Button();
+            this.tabRegistrations = new System.Windows.Forms.TabPage();
+            this.btnEditRegistration = new System.Windows.Forms.Button();
+            this.btnNewRegistration = new System.Windows.Forms.Button();
+            this.txtRegistrationSearch = new System.Windows.Forms.TextBox();
+            this.btnSearchRegistrations = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnLoadSimpleRegistration = new System.Windows.Forms.Button();
+            this.grdRegistrations = new System.Windows.Forms.DataGridView();
+            this.btnLoadRegistrations = new System.Windows.Forms.Button();
             this.tabAccounts = new System.Windows.Forms.TabPage();
             this.btnSearchAccountsValue = new System.Windows.Forms.Button();
             this.txtAccountSearch = new System.Windows.Forms.TextBox();
@@ -68,25 +77,16 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEndpoint = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tabRegistrations = new System.Windows.Forms.TabPage();
-            this.btnEditRegistration = new System.Windows.Forms.Button();
-            this.btnNewRegistration = new System.Windows.Forms.Button();
-            this.txtRegistrationSearch = new System.Windows.Forms.TextBox();
-            this.btnSearchRegistrations = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnLoadSimpleRegistration = new System.Windows.Forms.Button();
-            this.grdRegistrations = new System.Windows.Forms.DataGridView();
-            this.btnLoadRegistrations = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdClients)).BeginInit();
+            this.tabRegistrations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRegistrations)).BeginInit();
             this.tabAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAccounts)).BeginInit();
             this.tabLaunchOC.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            this.tabRegistrations.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdRegistrations)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCheckToken
@@ -95,7 +95,7 @@
             this.btnCheckToken.Name = "btnCheckToken";
             this.btnCheckToken.Size = new System.Drawing.Size(137, 23);
             this.btnCheckToken.TabIndex = 0;
-            this.btnCheckToken.Text = "Check Token";
+            this.btnCheckToken.Text = "Check Token / Login";
             this.btnCheckToken.UseVisualStyleBackColor = true;
             this.btnCheckToken.Click += new System.EventHandler(this.btnCheckToken_Click);
             // 
@@ -326,6 +326,110 @@
             this.btnLoadClients.UseVisualStyleBackColor = true;
             this.btnLoadClients.Click += new System.EventHandler(this.btnLoadClients_Click);
             // 
+            // tabRegistrations
+            // 
+            this.tabRegistrations.Controls.Add(this.btnEditRegistration);
+            this.tabRegistrations.Controls.Add(this.btnNewRegistration);
+            this.tabRegistrations.Controls.Add(this.txtRegistrationSearch);
+            this.tabRegistrations.Controls.Add(this.btnSearchRegistrations);
+            this.tabRegistrations.Controls.Add(this.label8);
+            this.tabRegistrations.Controls.Add(this.btnLoadSimpleRegistration);
+            this.tabRegistrations.Controls.Add(this.grdRegistrations);
+            this.tabRegistrations.Controls.Add(this.btnLoadRegistrations);
+            this.tabRegistrations.Location = new System.Drawing.Point(4, 22);
+            this.tabRegistrations.Name = "tabRegistrations";
+            this.tabRegistrations.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRegistrations.Size = new System.Drawing.Size(1010, 526);
+            this.tabRegistrations.TabIndex = 3;
+            this.tabRegistrations.Text = "Registrations";
+            this.tabRegistrations.UseVisualStyleBackColor = true;
+            // 
+            // btnEditRegistration
+            // 
+            this.btnEditRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditRegistration.Location = new System.Drawing.Point(275, 470);
+            this.btnEditRegistration.Name = "btnEditRegistration";
+            this.btnEditRegistration.Size = new System.Drawing.Size(167, 23);
+            this.btnEditRegistration.TabIndex = 28;
+            this.btnEditRegistration.Text = "Edit Registration...";
+            this.btnEditRegistration.UseVisualStyleBackColor = true;
+            this.btnEditRegistration.Click += new System.EventHandler(this.btnEditRegistration_Click);
+            // 
+            // btnNewRegistration
+            // 
+            this.btnNewRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewRegistration.Location = new System.Drawing.Point(448, 470);
+            this.btnNewRegistration.Name = "btnNewRegistration";
+            this.btnNewRegistration.Size = new System.Drawing.Size(167, 23);
+            this.btnNewRegistration.TabIndex = 27;
+            this.btnNewRegistration.Text = "New Registration...";
+            this.btnNewRegistration.UseVisualStyleBackColor = true;
+            this.btnNewRegistration.Click += new System.EventHandler(this.btnNewRegistration_Click);
+            // 
+            // txtRegistrationSearch
+            // 
+            this.txtRegistrationSearch.Location = new System.Drawing.Point(644, 119);
+            this.txtRegistrationSearch.Name = "txtRegistrationSearch";
+            this.txtRegistrationSearch.Size = new System.Drawing.Size(236, 20);
+            this.txtRegistrationSearch.TabIndex = 25;
+            this.txtRegistrationSearch.Text = "enter name or id to search";
+            // 
+            // btnSearchRegistrations
+            // 
+            this.btnSearchRegistrations.Location = new System.Drawing.Point(644, 145);
+            this.btnSearchRegistrations.Name = "btnSearchRegistrations";
+            this.btnSearchRegistrations.Size = new System.Drawing.Size(236, 23);
+            this.btnSearchRegistrations.TabIndex = 24;
+            this.btnSearchRegistrations.Text = "Search Registrations";
+            this.btnSearchRegistrations.UseVisualStyleBackColor = true;
+            this.btnSearchRegistrations.Click += new System.EventHandler(this.btnSearchRegistrations_Click);
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Silver;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(1004, 66);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Demonstrates querying all clients, and Searching Clients.  The /Simple and /Value" +
+    " endpoints return slimmed down objects to reduce overhead, useful for things lik" +
+    "e populating drop downs.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLoadSimpleRegistration
+            // 
+            this.btnLoadSimpleRegistration.Location = new System.Drawing.Point(183, 145);
+            this.btnLoadSimpleRegistration.Name = "btnLoadSimpleRegistration";
+            this.btnLoadSimpleRegistration.Size = new System.Drawing.Size(178, 23);
+            this.btnLoadSimpleRegistration.TabIndex = 21;
+            this.btnLoadSimpleRegistration.Text = "Load Simple (for drop downs)";
+            this.btnLoadSimpleRegistration.UseVisualStyleBackColor = true;
+            this.btnLoadSimpleRegistration.Click += new System.EventHandler(this.btnLoadSimpleRegistration_Click);
+            // 
+            // grdRegistrations
+            // 
+            this.grdRegistrations.AllowUserToOrderColumns = true;
+            this.grdRegistrations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdRegistrations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdRegistrations.Location = new System.Drawing.Point(23, 191);
+            this.grdRegistrations.Name = "grdRegistrations";
+            this.grdRegistrations.Size = new System.Drawing.Size(958, 273);
+            this.grdRegistrations.TabIndex = 19;
+            // 
+            // btnLoadRegistrations
+            // 
+            this.btnLoadRegistrations.Location = new System.Drawing.Point(23, 145);
+            this.btnLoadRegistrations.Name = "btnLoadRegistrations";
+            this.btnLoadRegistrations.Size = new System.Drawing.Size(154, 23);
+            this.btnLoadRegistrations.TabIndex = 18;
+            this.btnLoadRegistrations.Text = "Load All Registrations";
+            this.btnLoadRegistrations.UseVisualStyleBackColor = true;
+            this.btnLoadRegistrations.Click += new System.EventHandler(this.btnLoadRegistrations_Click);
+            // 
             // tabAccounts
             // 
             this.tabAccounts.Controls.Add(this.btnSearchAccountsValue);
@@ -340,7 +444,7 @@
             this.tabAccounts.Controls.Add(this.btnLoadAllAccounts);
             this.tabAccounts.Location = new System.Drawing.Point(4, 22);
             this.tabAccounts.Name = "tabAccounts";
-            this.tabAccounts.Size = new System.Drawing.Size(992, 511);
+            this.tabAccounts.Size = new System.Drawing.Size(1010, 526);
             this.tabAccounts.TabIndex = 2;
             this.tabAccounts.Text = "Accounts";
             this.tabAccounts.UseVisualStyleBackColor = true;
@@ -380,7 +484,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(992, 66);
+            this.label7.Size = new System.Drawing.Size(1010, 66);
             this.label7.TabIndex = 22;
             this.label7.Text = "Demonstrates querying all accounts, and Searching Accounts.  The /Simple and /Val" +
     "ue endpoints return slimmed down objects to reduce overhead, useful for things l" +
@@ -461,7 +565,7 @@
             this.tabLaunchOC.Location = new System.Drawing.Point(4, 22);
             this.tabLaunchOC.Name = "tabLaunchOC";
             this.tabLaunchOC.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLaunchOC.Size = new System.Drawing.Size(992, 511);
+            this.tabLaunchOC.Size = new System.Drawing.Size(1010, 526);
             this.tabLaunchOC.TabIndex = 0;
             this.tabLaunchOC.Text = "Launch Orion Connect";
             this.tabLaunchOC.UseVisualStyleBackColor = true;
@@ -473,7 +577,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(986, 66);
+            this.label5.Size = new System.Drawing.Size(1004, 66);
             this.label5.TabIndex = 11;
             this.label5.Text = "Demonstrates using the api token to launch Orion Connect.  This is a contextual l" +
     "ink to orion screens, that can be linked to from other systems such as a CRM.";
@@ -524,110 +628,6 @@
             this.lblEndpoint.Name = "lblEndpoint";
             this.lblEndpoint.Size = new System.Drawing.Size(0, 17);
             // 
-            // tabRegistrations
-            // 
-            this.tabRegistrations.Controls.Add(this.btnEditRegistration);
-            this.tabRegistrations.Controls.Add(this.btnNewRegistration);
-            this.tabRegistrations.Controls.Add(this.txtRegistrationSearch);
-            this.tabRegistrations.Controls.Add(this.btnSearchRegistrations);
-            this.tabRegistrations.Controls.Add(this.label8);
-            this.tabRegistrations.Controls.Add(this.btnLoadSimpleRegistration);
-            this.tabRegistrations.Controls.Add(this.grdRegistrations);
-            this.tabRegistrations.Controls.Add(this.btnLoadRegistrations);
-            this.tabRegistrations.Location = new System.Drawing.Point(4, 22);
-            this.tabRegistrations.Name = "tabRegistrations";
-            this.tabRegistrations.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegistrations.Size = new System.Drawing.Size(1010, 526);
-            this.tabRegistrations.TabIndex = 3;
-            this.tabRegistrations.Text = "Registrations";
-            this.tabRegistrations.UseVisualStyleBackColor = true;
-            // 
-            // btnEditRegistration
-            // 
-            this.btnEditRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditRegistration.Location = new System.Drawing.Point(275, 470);
-            this.btnEditRegistration.Name = "btnEditRegistration";
-            this.btnEditRegistration.Size = new System.Drawing.Size(167, 23);
-            this.btnEditRegistration.TabIndex = 28;
-            this.btnEditRegistration.Text = "Edit Registration...";
-            this.btnEditRegistration.UseVisualStyleBackColor = true;
-            this.btnEditRegistration.Click += new System.EventHandler(this.btnEditRegistration_Click);
-            // 
-            // btnNewRegistration
-            // 
-            this.btnNewRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNewRegistration.Location = new System.Drawing.Point(448, 470);
-            this.btnNewRegistration.Name = "btnNewRegistration";
-            this.btnNewRegistration.Size = new System.Drawing.Size(167, 23);
-            this.btnNewRegistration.TabIndex = 27;
-            this.btnNewRegistration.Text = "NewRegistration...";
-            this.btnNewRegistration.UseVisualStyleBackColor = true;
-            this.btnNewRegistration.Click += new System.EventHandler(this.btnNewRegistration_Click);
-            // 
-            // txtRegistrationSearch
-            // 
-            this.txtRegistrationSearch.Location = new System.Drawing.Point(644, 119);
-            this.txtRegistrationSearch.Name = "txtRegistrationSearch";
-            this.txtRegistrationSearch.Size = new System.Drawing.Size(236, 20);
-            this.txtRegistrationSearch.TabIndex = 25;
-            this.txtRegistrationSearch.Text = "enter name or id to search";
-            // 
-            // btnSearchRegistrations
-            // 
-            this.btnSearchRegistrations.Location = new System.Drawing.Point(644, 145);
-            this.btnSearchRegistrations.Name = "btnSearchRegistrations";
-            this.btnSearchRegistrations.Size = new System.Drawing.Size(236, 23);
-            this.btnSearchRegistrations.TabIndex = 24;
-            this.btnSearchRegistrations.Text = "Search Registrations";
-            this.btnSearchRegistrations.UseVisualStyleBackColor = true;
-            this.btnSearchRegistrations.Click += new System.EventHandler(this.btnSearchRegistrations_Click);
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Silver;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1004, 66);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Demonstrates querying all clients, and Searching Clients.  The /Simple and /Value" +
-    " endpoints return slimmed down objects to reduce overhead, useful for things lik" +
-    "e populating drop downs.";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnLoadSimpleRegistration
-            // 
-            this.btnLoadSimpleRegistration.Location = new System.Drawing.Point(183, 145);
-            this.btnLoadSimpleRegistration.Name = "btnLoadSimpleRegistration";
-            this.btnLoadSimpleRegistration.Size = new System.Drawing.Size(178, 23);
-            this.btnLoadSimpleRegistration.TabIndex = 21;
-            this.btnLoadSimpleRegistration.Text = "Load Simple (for drop downs)";
-            this.btnLoadSimpleRegistration.UseVisualStyleBackColor = true;
-            this.btnLoadSimpleRegistration.Click += new System.EventHandler(this.btnLoadSimpleRegistration_Click);
-            // 
-            // grdRegistrations
-            // 
-            this.grdRegistrations.AllowUserToOrderColumns = true;
-            this.grdRegistrations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdRegistrations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdRegistrations.Location = new System.Drawing.Point(23, 191);
-            this.grdRegistrations.Name = "grdRegistrations";
-            this.grdRegistrations.Size = new System.Drawing.Size(958, 273);
-            this.grdRegistrations.TabIndex = 19;
-            // 
-            // btnLoadRegistrations
-            // 
-            this.btnLoadRegistrations.Location = new System.Drawing.Point(23, 145);
-            this.btnLoadRegistrations.Name = "btnLoadRegistrations";
-            this.btnLoadRegistrations.Size = new System.Drawing.Size(154, 23);
-            this.btnLoadRegistrations.TabIndex = 18;
-            this.btnLoadRegistrations.Text = "Load All Registrations";
-            this.btnLoadRegistrations.UseVisualStyleBackColor = true;
-            this.btnLoadRegistrations.Click += new System.EventHandler(this.btnLoadRegistrations_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,6 +643,9 @@
             this.tabClients.ResumeLayout(false);
             this.tabClients.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdClients)).EndInit();
+            this.tabRegistrations.ResumeLayout(false);
+            this.tabRegistrations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRegistrations)).EndInit();
             this.tabAccounts.ResumeLayout(false);
             this.tabAccounts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAccounts)).EndInit();
@@ -652,9 +655,6 @@
             this.panel1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.tabRegistrations.ResumeLayout(false);
-            this.tabRegistrations.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdRegistrations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

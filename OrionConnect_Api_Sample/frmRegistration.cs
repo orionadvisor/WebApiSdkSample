@@ -70,9 +70,10 @@ namespace OrionConnect_Api_Sample
             else
                 _registrationVerbose.portfolio.dob = null;
             _registrationVerbose.beneficiaries = null;
-            
+
+            _registrationVerbose.portfolio.clientId = (int)cboClient.SelectedValue;
             _registrationVerbose = OrionApi.Portfolio.RegistrationSave( _registrationVerbose );
-            _registrationVerbose.portfolio.clientId = (int) cboClient.SelectedValue;
+
 
             MessageBox.Show( "Registration id: " + _registrationVerbose.id.ToString( ) + " was saved." );
 
