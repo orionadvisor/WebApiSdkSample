@@ -297,6 +297,15 @@ namespace OrionApiSdk.Code
 
             return d;
         }
+
+        public List<Simple> FundFamiliesSimple()
+        {
+            var endpoint = string.Format("Portfolio/FundFamilies/Simple");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Simple>>(j);
+
+            return d;
+        }
         #endregion
 
     }
