@@ -315,6 +315,15 @@ namespace OrionApiSdk.Code
 
             return d;
         }
+
+        public List<RepresentativeSimple> RepresentativesSimple()
+        {
+            var endpoint = string.Format("Portfolio/Representatives/Simple");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<RepresentativeSimple>>(j);
+
+            return d;
+        }
         #endregion
 
     }
