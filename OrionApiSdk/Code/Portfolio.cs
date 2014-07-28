@@ -289,6 +289,15 @@ namespace OrionApiSdk.Code
             return d;
         }
 
+        public List<Simple> BrokerDealersSimple()
+        {
+            var endpoint = string.Format("Portfolio/BrokerDealers/Simple");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Simple>>(j);
+
+            return d;
+        }
+
         public List<Simple> CustodiansSimple()
         {
             var endpoint = string.Format("Portfolio/Custodians/Simple");
