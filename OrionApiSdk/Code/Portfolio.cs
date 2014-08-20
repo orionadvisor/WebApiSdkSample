@@ -197,8 +197,8 @@ namespace OrionApiSdk.Code
 
         #endregion
 
-        #region Represenatives/Advisors
-        public List<Simple> RepresenativesSimple(int top = 50000, int skip = 0)
+        #region Representatives/Advisors
+        public List<Simple> RepresentativesSimple(int top = 50000, int skip = 0)
         {
             var endpoint = string.Format("Portfolio/Representatives/Simple?$top={0}&$skip={1}", top, skip);
             var j = base.GetJson(endpoint);

@@ -27,7 +27,7 @@ namespace OrionConnect_Api_Sample
             // load reps combo
             cboRep.DisplayMember = "name";
             cboRep.ValueMember = "id";
-            cboRep.DataSource = OrionApi.Portfolio.RepresenativesSimple();
+            cboRep.DataSource = OrionApi.Portfolio.RepresentativesSimple();
 
             // if the clientverbose has not been set, initialize a new one.
             if( this._clientVerbose == null ) {

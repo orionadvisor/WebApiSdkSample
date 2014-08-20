@@ -34,7 +34,7 @@ namespace OrionConnect_Api_Sample
             // load account types combo
             cboAccountType.DisplayMember = "name";
             cboAccountType.ValueMember = "id";
-            cboAccountType.DataSource = OrionApi.Portfolio.RepresenativesSimple( );
+            cboAccountType.DataSource = OrionApi.Portfolio.RepresentativesSimple( );
 
 
             // if the RegistrationVerbose has not been set, initialize a new one.
