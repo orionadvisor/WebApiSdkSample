@@ -266,14 +266,49 @@ namespace OrionApiSdk.Code
             return d;
         }
 
-        public AccountVerbose AccountVerbose( int accountId)
+        public AccountVerbose AccountVerbose(int accountId)
         {
             var endpoint = string.Format("Portfolio/Accounts/Verbose/{0}", accountId);
             var j = base.GetJson(endpoint);
             var d = JsonConvert.DeserializeObject<AccountVerbose>(j);
 
             return d;
-        } 
+        }
+
+        public AccountVerbose AccountVerboseNew()
+        {
+            var endpoint = string.Format("Portfolio/Accounts/Verbose/New");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<AccountVerbose>(j);
+
+            return d;
+        }
+
+        public AccountVerbose AccountSave(AccountVerbose accountVerbose)
+        {
+            var endpoint = string.Empty;
+            var j = string.Empty;
+
+            if (accountVerbose.id == 0)
+            {
+                // new 
+                endpoint = string.Format("Portfolio/Accounts/Verbose");
+                j = base.PostJson(endpoint, accountVerbose);
+            }
+            else
+            {
+                // update
+                endpoint = string.Format("Portfolio/Accounts/Verbose/{0}", accountVerbose.id);
+                j = base.PutJson(endpoint, accountVerbose);
+            }
+
+
+
+            var d = JsonConvert.DeserializeObject<AccountVerbose>(j);
+
+
+            return d;
+        }
         #endregion
 
         #endregion
