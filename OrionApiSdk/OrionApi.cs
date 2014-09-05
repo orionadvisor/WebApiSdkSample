@@ -24,19 +24,27 @@ namespace OrionApiSdk
 
 
         private static Code.Portfolio _portfolio;
-        public static Code.Portfolio Portfolio {
+        public static Code.Portfolio Portfolio 
+        {
             get { return _portfolio ?? ( _portfolio = new Code.Portfolio( _httpClient ) ); }
         }
 
         private static Code.Authorization _authorization;
         public static Code.Authorization Authorization
         {
-            get { return _authorization ?? (_authorization = new Code.Authorization(_httpClient)); }
+            get { return _authorization ?? ( _authorization = new Code.Authorization( _httpClient ) ); }
         }
 
         private static Code.OrionConnectLinks _links;
-        public static Code.OrionConnectLinks OrionConnectLinks {
+        public static Code.OrionConnectLinks OrionConnectLinks 
+        {
             get { return _links ?? ( _links = new OrionConnectLinks( _orionConnectUrl ) ); }
+        }
+
+        private static Code.LaserApp _laserapp;
+        public static Code.LaserApp LaserApp
+        {
+            get { return _laserapp ?? (_laserapp = new LaserApp(_httpClient)); }
         }
 
         private static void reset( ) {

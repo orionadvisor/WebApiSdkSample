@@ -73,6 +73,7 @@
     <Compile Include="Classes\Authorization\User.cs" />
     <Compile Include="Classes\Enums\Entity.cs" />
     <Compile Include="Classes\Enums\OrionEnvironment.cs" />
+    <Compile Include="Classes\LaserApp\Form.cs" />
     <Compile Include="Classes\Portfolio\Account.cs" />
     <Compile Include="Classes\Portfolio\AccountSimple.cs" />
     <Compile Include="Classes\Portfolio\AccountSimpleValue.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Classes\Portfolio\SimpleValue.cs" />
     <Compile Include="Code\ApiBase.cs" />
     <Compile Include="Code\Authorization.cs" />
+    <Compile Include="Code\LaserApp.cs" />
     <Compile Include="Code\OrionConnectLinks.cs" />
     <Compile Include="Code\Portfolio.cs" />
     <Compile Include="OrionApi.cs" />
