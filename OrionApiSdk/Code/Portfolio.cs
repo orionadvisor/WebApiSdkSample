@@ -313,7 +313,6 @@ namespace OrionApiSdk.Code
 
         #endregion
 
-
         #region Lookup Tables
         public List<AccountTypeSimple> AccountTypes()
         {
@@ -359,6 +358,16 @@ namespace OrionApiSdk.Code
 
             return d;
         }
+
+        public List<Simple> PlatformsSimple()
+        {
+            var endpoint = string.Format("Portfolio/Platforms/Simple");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<Simple>>(j);
+
+            return d;
+        }
+
         #endregion
 
     }
