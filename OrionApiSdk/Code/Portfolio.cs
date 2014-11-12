@@ -314,6 +314,15 @@ namespace OrionApiSdk.Code
         #endregion
 
         #region Lookup Tables
+        public List<AccountStatus> AccountStatuses()
+        {
+            var endpoint = string.Format("Portfolio/AccountStatuses");
+            var j = base.GetJson(endpoint);
+            var d = JsonConvert.DeserializeObject<List<AccountStatus>>(j);
+
+            return d;
+        }
+
         public List<AccountTypeSimple> AccountTypes()
         {
             var endpoint = string.Format("Portfolio/Registrations/Types");

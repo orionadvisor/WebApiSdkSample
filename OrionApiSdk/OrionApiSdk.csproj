@@ -82,6 +82,7 @@
     <Compile Include="Classes\Portfolio\Client.cs" />
     <Compile Include="Classes\Portfolio\ClientSimple.cs" />
     <Compile Include="Classes\Portfolio\ClientVerbose.cs" />
+    <Compile Include="Classes\Portfolio\AccountStatus.cs" />
     <Compile Include="Classes\Portfolio\Registration.cs" />
     <Compile Include="Classes\Portfolio\RegistrationSimple.cs" />
     <Compile Include="Classes\Portfolio\RegistrationVerbose.cs" />
